@@ -8,17 +8,27 @@ void setup() {
   Serial.begin(115200);
   delay(100); // รอพอร์ต Serial เริ่มต้นทำงาน
   Serial.println();
-  Serial.println("=============================");
-  Serial.println(" NodeMCU ESP8266 System Ready");
-  Serial.println("=============================");
+  Serial.println("==========================================");
+  Serial.println(" NodeMCU ESP8266: Double Blink Pattern");
+  Serial.println("==========================================");
 }
 
 void loop() {
+  // --- กะพริบครั้งที่ 1 ---
   digitalWrite(LED_PIN, LOW);   // ไฟติด (Active LOW)
-  Serial.println("[💡] ไฟเปิด  | Status: ON");
-  delay(10000); // หน่วงเวลา 10 วินาที
+  Serial.println("[💡] ไฟเปิด ครั้งที่ 1");
+  delay(250);
 
   digitalWrite(LED_PIN, HIGH);  // ไฟดับ
-  Serial.println("[⚫] ไฟปิด   | Status: OFF");
-  delay(10000); // หน่วงเวลา 10 วินาที
+  Serial.println("[⚫] ไฟปิด");
+  delay(250);
+
+  // --- กะพริบครั้งที่ 2 ---
+  digitalWrite(LED_PIN, LOW);   // ไฟติด (Active LOW)
+  Serial.println("[💡] ไฟเปิด ครั้งที่ 2");
+  delay(250);
+
+  digitalWrite(LED_PIN, HIGH);  // ไฟดับ
+  Serial.println("[⚫] ไฟดับยาว (พักรอบ)");
+  delay(1500); // ดับยาว 1.5 วินาที ก่อนเริ่มรอบใหม่
 }
